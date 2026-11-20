@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Shosho!</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Great+Vibes&display=swap');
+:root{--wine:#710d24;--deep:#4b0718;--pink:#f8dce5;--rose:#d97998;--cream:#fff8f5;--ink:#5b2435}
+*{box-sizing:border-box}body{margin:0;background:var(--wine);color:var(--cream);font-family:Cairo, sans-serif;min-height:100vh;overflow-x:hidden}
+nav{height:54px;background:#4c0718;display:flex;align-items:center;justify-content:space-between;padding:0 7%;font-size:12px;letter-spacing:1px}
+nav b{color:#f6c4d3;font-family:'Great Vibes',cursive;font-size:24px}
+nav span{opacity:.8}
+.screen{display:none;min-height:calc(100vh - 54px);padding:36px 18px;align-items:center;justify-content:center;text-align:center;position:relative}
+.screen.active{display:flex;flex-direction:column}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+h1{font-size:clamp(42px,8vw,76px);margin:0;color:#f8dce5;font-weight:400}
+h2{font-size:clamp(28px,5vw,44px);margin:0 0 12px;color:#f8dce5}
+p{line-height:1.9}
+.sub{color:#f4c6d4;max-width:600px;margin:12px auto 24px}
+.btn{border:0;border-radius:30px;padding:12px 27px;background:#f4cbd8;color:#6b1027;font:700 15px Cairo;cursor:pointer;box-shadow:0 7px 20px #29000d55;transition:.2s}
+.btn:hover{transform:translateY(-3px);background:white}
+.hero-card{background:#fcecf0;color:#7a1831;border:10px solid #f4cbd8;padding:42px 24px;border-radius:8px;max-width:650px;width:100%;box-shadow:0 18px 50px #26000b66}
+.hero-card .script{font-size:clamp(45px,8vw,75px)}
+.decor{font-size:40px;letter-spacing:12px;margin:12px}
+.options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;width:min(850px,100%);margin-top:24px}
+.option{background:#f9e9ed;color:#71152c;border:2px solid #f4cbd8;border-radius:16px;padding:24px 12px;cursor:pointer;transition:.2s;min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.option:hover{transform:translateY(-7px);box-shadow:0 12px 30px #26000b66}
+.option .emoji{font-size:55px}.option strong{font-size:19px;margin-top:8px}
+.paper{background:#fff5f2;color:#632034;width:min(680px,100%);padding:34px 28px;border:9px solid #f1c6d3;box-shadow:0 16px 45px #26000b66;position:relative}
+.paper:before{content:"";position:absolute;inset:9px;border:1px dashed #d68ba0;pointer-events:none}
+.paper p{position:relative;font-size:17px}
+.envelope{font-size:100px;cursor:pointer;filter:drop-shadow(0 10px 8px #26000b66);animation:bob 2s infinite ease-in-out}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.flower{font-size:100px;animation:float 3s infinite ease-in-out}
+@keyframes float{50%{transform:rotate(5deg) translateY(-8px)}}
+.cake{font-size:110px;cursor:pointer;filter:drop-shadow(0 10px 10px #26000b55)}
+.candles{font-size:32px;letter-spacing:7px;margin-bottom:-8px}
+.wish-list{list-style:none;padding:0;margin:15px auto;max-width:470px;text-align:right}
+.wish-list li{background:#fff0f3;color:#6c1930;margin:9px 0;padding:12px 16px;border-radius:12px}
+.wish-list li:before{content:"✦ ";color:#bd5577}
+.back{margin-top:24px;background:transparent;color:#f9dce5;border:1px solid #f9dce5;box-shadow:none}
+.confetti{position:fixed;top:-20px;pointer-events:none;z-index:10;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(700deg);opacity:.2}}
+.small{font-size:13px;color:#f1bfd0}
+@media(max-width:600px){nav{padding:0 16px}.options{grid-template-columns:1fr;max-width:340px}.option{min-height:125px;flex-direction:row;gap:16px}.option .emoji{font-size:45px}.paper{padding:25px 18px}.paper p{font-size:15px}}
+</style>
+</head>
+<body>
+<nav><b>Shosho's little world</b><span>20 NOVEMBER · A DAY FOR ME ♡</span></nav>
+
+<section class="screen active" id="home">
+  <div class="hero-card">
+    <div class="decor">♡ ✿ ♡</div>
+    <h1 class="script">Happy Birthday ياروحيييي!</h1>
+    <h2 style="color:#8a2340">Shosho</h2>
+    <p>Today is all about celebrating you, your dreams, and the beautiful person you're becoming.</p>
+    <button class="btn" onclick="show('choose');sprinkle()">افتحي هدية عيد ميلادك ✨</button>
+  </div>
+  <p class="small">made with love, just for me ♡</p>
+</section>
+
+<section class="screen" id="choose">
+  <h1 class="script">Choose Your Surprise</h1>
+  <p class="sub">A little birthday corner made especially for Shosho.</p>
+  <div class="options">
+    <button class="option" onclick="show('message')"><span class="emoji">💌</span><strong>My letter</strong><span>كلام من قلبي ليكي</span></button>
+    <button class="option" onclick="show('flowers')"><span class="emoji">💐</span><strong>Flowers</strong><span>باقة ورد ليكي</span></button>
+    <button class="option" onclick="show('cake')"><span class="emoji">🎂</span><strong>Birthday cake</strong><span>اتمني أمنية واطفي الشموع</span></button>
+  </div>
+  <button class="btn back" onclick="show('home')">رجوع</button>
+</section>
+
+<section class="screen" id="message">
+  <h1 class="script">A letter to Shosho</h1>
+  <div class="envelope" onclick="document.getElementById('letter').hidden=false;this.style.display='none'">💌</div>
+  <p class="small">اضغطي على الظرف عشان تفتحي رسالتك</p>
+  <div class="paper" id="letter" hidden>
+    <h2 style="color:#8a2340" class="script">My dear Shosho,</h2>
+    <p>كل سنة وإنتِ طيبة يا شوشو. العمر كله يا حبيبة قلبي ربنا يجعلها سنة سعيدة عليكي وحنينة شبة قلبك بالظبط.</p>
+    <p>❤️ ربنا يجعل السنة الجديدة من عمرك مليانة خير وفرحة وراحة بال، ويحققلك كل اللي نفسك فيه، ويرزقك أضعاف اللي بتتمنيه، ويبعد عنك أي حزن أو تعب، ويكتبلك نصيب حلو في كل حاجة، ويخلي أيامك كلها نجاح ورضا وستر. يا رب السنة دي تكون بداية لكل حاجة حلوة نفسك فيها، وتفضلي دايمًا منورة ومبسوطة وضحكتك مابتفارقش وشك. بحبك وكل سنة وإنتِ طيبة يا قمر ❤️🎂.</p>
+    <p>أتمنى سنتك الجديدة تكون مليانة راحة بال، صحة، حب صادق، نجاح، وسفر وتحقيق لكل الأمنيات اللي في قلبك.</p>
+    <h2 class="script" style="color:#8a2340">With love, always ♡</h2>
+  </div>
+  <button class="btn back" onclick="show('choose')">رجوع للمفاجآت</button>
+</section>
+
+<section class="screen" id="flowers">
+  <h1 class="script">Flowers for you</h1>
+  <div class="flower">💐</div>
+  <div class="paper"><h2 class="script" style="color:#8a2340">You deserve all the flowers</h2><p>لأنك تستاهلي الحاجات الحلوة، مش في عيد ميلادك بس… كل يوم. 🌷</p></div>
+  <button class="btn back" onclick="show('choose')">رجوع للمفاجآت</button>
+</section>
+
+<section class="screen" id="cake">
+  <h1 class="script">Make a wish, Shosho!</h1>
+  <p class="sub">خدي نفس، اتمني أمنية من قلبك، واضغطي على التورتة عشان تطفي الشموع.</p>
+  <div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+  <div class="cake" onclick="blow()">🎂</div>
+  <p id="wishResult" class="sub" aria-live="polite">Your new chapter starts now ♡</p>
+  <button class="btn" onclick="show('wishes')">أمنياتي للسنة الجديدة ✨</button>
+  <button class="btn back" onclick="show('choose')">رجوع للمفاجآت</button>
+</section>
+
+<section class="screen" id="wishes">
+  <h1 class="script">Dear future me...</h1>
+  <p class="sub">دي أمنيات شوشو للسنة الجديدة — خليها قدام عينك وافتكري إن كل حلم بيبدأ بخطوة.</p>
+  <ul class="wish-list">
+    <li>أكون فخورة بنفسي وباللي حققته.</li>
+    <li>أطور نفسي في البرمجة وأبدأ طريقي المهني.</li>
+    <li>أقرب من الاستقلال المادي والسفر.</li>
+    <li>أهتم بصحتي ونفسي بحب وصبر.</li>
+    <li>أعيش أيام فيها راحة وبهجة وناس صادقة.</li>
+  </ul>
+  <button class="btn" onclick="show('home')">عيد ميلاد سعيد يا شوشو ♡</button>
+</section>
+
+<script>
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function sprinkle(){
+  const symbols=['✦','♡','✿','✨','•'];
+  for(let i=0;i<34;i++){
+    const e=document.createElement('span');e.className='confetti';
+    e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    e.style.left=Math.random()*100+'vw';e.style.color=['#ffd9e4','#fff1b8','#f6a9c0'][i%3];
+    e.style.fontSize=(12+Math.random()*18)+'px';e.style.animationDuration=(3+Math.random()*4)+'s';
+    document.body.appendChild(e);setTimeout(()=>e.remove(),7500);
+  }
+}
+function blow(){
+  document.getElementById('candles').textContent='♡  ♡  ♡';
+  document.getElementById('wishResult').textContent='Happy birthday, Shosho! ✨ May your wish find its way to you.';
+  sprinkle();
+}
+</script>
+</body>
+</html>
